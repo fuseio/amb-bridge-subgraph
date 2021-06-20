@@ -2,17 +2,25 @@
   "name": "fuse-ethereum-amb",
   "version": "0.1.0",
   "scripts": {
-    "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
+    "prepare-ethfuse-eth": "mustache config/ethFuse/mainnet.json subgraph.template.yaml > subgraph.yaml",
+    "prepare-ethfuse-fuse": "mustache config/ethFuse/fuse.json subgraph.template.yaml > subgraph.yaml",
+    "prepare-bscfuse-bsc": "mustache config/bscFuse/bsc.json subgraph.template.yaml > subgraph.yaml",
+    "prepare-bscfuse-fuse": "mustache config/bscFuse/fuse.json subgraph.template.yaml > subgraph.yaml",
     "create": "graph create mul53/fuse-ethereum-amb --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create mul53/fuse-ethereum-amb --node http://127.0.0.1:8020",
+    "create-local": "graph create mul53/fuse-fuse-amb --node http://127.0.0.1:8020",
+    "create-fuse": "graph create mul53/fuse-fuse-amb --node https://api.thegraph.com/deploy/",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy mul53/fuse-ethereum-amb --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy mul53/fuse-ethereum-amb --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "deploy-bscfuse-bsc": "graph deploy mul53/fuse-bscfuse-bsc-amb-bridge --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-bscfuse-fuse": "graph deploy mul53/fuse-bscfuse-fuse-amb-bridge --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-ethfuse-eth": "graph deploy mul53/fuse-ethereum-amb --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-ethfuse-fuse": "graph deploy mul53/fuse-fuse-amb --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy mul53/fuse-fuse-amb --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",
-    "@graphprotocol/graph-ts": "^0.20.0"
+    "@graphprotocol/graph-ts": "^0.20.0",
+    "mustache": "^4.2.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

@@ -1,0 +1,67 @@
+specVersion: 0.0.2
+description: Fuse subgraph for AMB briges
+repository: https://github.com/fuseio/fuse-amb-bridge
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: AMB
+    network: {{network}}
+    source:
+      address: '{{ambAddress}}'
+      startBlock: {{ambStartBlock}}
+      abi: AMB
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - UserRequestForAffirmation
+        - UserRequestForSignature
+        - RelayedMessage
+        - AffirmationCompleted
+        - CollectedSignature
+        - RequiredBlockConfirmationChanged
+      abis:
+        - name: AMB
+          file: ./src/abis/amb.json
+      eventHandlers:
+        - event: UserRequestForSignature(indexed bytes32,bytes)
+          handler: handleUserRequestForSignature
+        - event: UserRequestForAffirmation(indexed bytes32,bytes)
+          handler: handleUserRequestForAffirmation
+        - event: RelayedMessage(indexed address,indexed address,indexed bytes32,bool)
+          handler: handleRelayedMessage
+        - event: AffirmationCompleted(indexed address,indexed address,indexed bytes32,bool)
+          handler: handleAffirmationCompleted
+        - event: CollectedSignatures(address,bytes32,uint256)
+          handler: handleCollectedSignatures
+        - event: RequiredBlockConfirmationChanged(uint256)
+          handler: handleRequiredBlockConfirmationChanged
+      file: ./src/mappings/amb.ts
+  - kind: ethereum/contract
+    name: BridgeValidator
+    network: {{network}}
+    source:
+      address: '{{validatorAddress}}'
+      startBlock: {{validatorStartBlock}}
+      abi: BridgeValidator
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ValidatorAdded
+        - ValidatorRemoved
+        - RequiredSignaturesChanged
+      abis:
+        - name: BridgeValidator
+          file: ./src/abis/bridgeValidator.json
+      eventHandlers:
+        - event: ValidatorAdded(indexed address)
+          handler: handleValidatorAdded
+        - event: ValidatorRemoved(indexed address)
+          handler: handleValidatorRemoved
+        - event: RequiredSignaturesChanged(uint256)
+          handler: handleRequiredSignaturesChanged
+      file: ./src/mappings/bridgeValidator.ts

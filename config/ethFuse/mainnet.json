@@ -1,0 +1,7 @@
+{
+    "network": "mainnet",
+    "ambStartBlock": "10860079",
+    "ambAddress": "0x63C47c296B63bE888e9af376bd927C835014039f",
+    "validatorAddress": "0xcef01659d83ddd62fd11590baebe73958651c09a",
+    "validatorStartBlock": "10860070"
+}

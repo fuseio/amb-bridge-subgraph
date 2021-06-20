@@ -1,0 +1,7 @@
+{
+    "network": "bsc",
+    "ambStartBlock": "5585145",
+    "ambAddress": "0x3A5A320a2f98a3Fe39c9040e7e3E9caA7F0D5bd6",
+    "validatorAddress": "0xf45e6a3fc72c3af0ba0e66ca0d37299d1ac0655a",
+    "validatorStartBlock": "5585131"
+}

@@ -1,6 +1,54 @@
-type Gravatar @entity {
+type UserRequestForAffirmation @entity {
   id: ID!
-  owner: Bytes!
-  displayName: String!
-  imageUrl: String!
+  messageId: Bytes!
+  encodedData: Bytes!
+}
+
+type UserRequestForSignature @entity {
+  id: ID!
+  messageId: Bytes!
+  encodedData: Bytes!
+}
+
+type RelayedMessage @entity {
+  id: ID!
+  sender: Bytes!
+  executor: Bytes!
+  messageId: Bytes!
+  status: Boolean!
+}
+
+type AffirmationCompleted @entity {
+  id: ID!
+  sender: Bytes!
+  executor: Bytes!
+  messageId: Bytes!
+  status: Boolean!
+}
+
+type CollectedSignature @entity {
+  id: ID!
+  authorityResponsibleForRelay: Bytes!
+  messageHash: Bytes
+  numberOfCollectedSignatures: BigInt
+}
+
+type ValidatorAdded @entity {
+  id: ID!
+  validator: Bytes
+}
+
+type ValidatorRemoved @entity {
+  id: ID!
+  validator: Bytes
+}
+
+type RequiredSignaturesChanged @entity {
+  id: ID!
+  requiredSignatures: BigInt
+}
+
+type RequiredBlockConfirmationChanged @entity {
+  id: ID!
+  requiredBlockConfirmations: BigInt
 }

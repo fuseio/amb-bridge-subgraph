@@ -1,0 +1,7 @@
+{
+    "network": "fuse",
+    "ambStartBlock": "9960267",
+    "ambAddress": "0x1ee6E3E3d2DE779858728E157B3B9C488bA7b706",
+    "validatorAddress": "0x83ee8534f7462e3f079be723ffbb49461868b1dc",
+    "validatorStartBlock": "9960239"
+}
