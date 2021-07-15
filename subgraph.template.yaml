@@ -16,6 +16,7 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
+        - Message
         - UserRequestForAffirmation
         - UserRequestForSignature
         - RelayedMessage
