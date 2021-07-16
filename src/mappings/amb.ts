@@ -17,7 +17,6 @@ import {
     RequiredBlockConfirmationChanged,
     Message
 } from '../../generated/schema';
-import { Bytes, ethereum } from '@graphprotocol/graph-ts';
 import { decodeSubmitSignatureCall, getIdFromMessage } from '../helper'
 
 

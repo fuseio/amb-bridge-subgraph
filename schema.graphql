@@ -56,7 +56,6 @@ type CollectedSignature @entity {
 
   txHash: Bytes!
   blockNo: BigInt!
-  messageId: Bytes!
 
   "event params"
   authorityResponsibleForRelay: Bytes!
