@@ -43,6 +43,7 @@ export function handleUserRequestForAffirmation(
     }
 
     message.userRequestForAffirmation = msgId;
+    message.txHash = event.transaction.hash.toHexString();
     message.save()
 }
 
@@ -69,6 +70,7 @@ export function handleUserRequestForSignature(
     }
 
     message.userRequestForSignature = msgId;
+    message.txHash = event.transaction.hash.toHexString();
     message.save()
 }
 
