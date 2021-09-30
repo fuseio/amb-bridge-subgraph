@@ -4,6 +4,7 @@ type UserRequestForAffirmation @entity {
 
   txHash: Bytes!
   blockNo: BigInt!
+  timestamp: BigInt!
 
   "event params"
   messageId: Bytes!
@@ -16,6 +17,7 @@ type UserRequestForSignature @entity {
 
   txHash: Bytes!
   blockNo: BigInt!
+  timestamp: BigInt!
 
   "event params"
   messageId: Bytes!
@@ -28,6 +30,7 @@ type RelayedMessage @entity {
 
   txHash: Bytes!
   blockNo: BigInt!
+  timestamp: BigInt!
 
   "event params"
   sender: Bytes!
@@ -42,6 +45,7 @@ type AffirmationCompleted @entity {
   
   txHash: Bytes!
   blockNo: BigInt!
+  timestamp: BigInt!
 
   "event params"
   sender: Bytes!
@@ -56,6 +60,7 @@ type CollectedSignature @entity {
 
   txHash: Bytes!
   blockNo: BigInt!
+  timestamp: BigInt!
 
   "event params"
   authorityResponsibleForRelay: Bytes!

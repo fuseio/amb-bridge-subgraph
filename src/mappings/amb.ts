@@ -32,6 +32,7 @@ export function handleUserRequestForAffirmation(
 
     request.blockNo = event.block.number;
     request.txHash = event.transaction.hash;
+    request.timestamp = event.block.timestamp;
 
     request.messageId = event.params.messageId;
     request.encodedData = event.params.encodedData;
@@ -59,6 +60,7 @@ export function handleUserRequestForSignature(
 
     request.blockNo = event.block.number;
     request.txHash = event.transaction.hash;
+    request.timestamp = event.block.timestamp;
 
     request.messageId = event.params.messageId;
     request.encodedData = event.params.encodedData;
@@ -84,6 +86,7 @@ export function handleRelayedMessage(event: RelayedMessageEvent): void {
 
     relayedMessage.blockNo = event.block.number;
     relayedMessage.txHash = event.transaction.hash;
+    relayedMessage.timestamp = event.block.timestamp;
 
     relayedMessage.sender = event.params.sender;
     relayedMessage.executor = event.params.executor;
@@ -110,6 +113,7 @@ export function handleAffirmationCompleted(event: AffirmationCompletedEvent): vo
 
     affirmationCompleted.blockNo = event.block.number;
     affirmationCompleted.txHash = event.transaction.hash;
+    affirmationCompleted.timestamp = event.block.timestamp;
 
     affirmationCompleted.sender = event.params.sender;
     affirmationCompleted.executor = event.params.executor;
@@ -138,6 +142,7 @@ export function handleCollectedSignatures(event: CollectedSignaturesEvent): void
 
     collectedSignatures.blockNo = event.block.number;
     collectedSignatures.txHash = event.transaction.hash;
+    collectedSignatures.timestamp = event.block.timestamp;
 
     collectedSignatures.authorityResponsibleForRelay = event.params.authorityResponsibleForRelay;
     collectedSignatures.messageHash = event.params.messageHash;
