@@ -2,12 +2,20 @@ type UserRequestForAffirmation @entity {
   id: ID!
   messageId: Bytes!
   encodedData: Bytes!
+  message: Message
+  timestamp: BigInt!
+  txHash: Bytes!
+  recipient: Bytes
 }
 
 type UserRequestForSignature @entity {
   id: ID!
   messageId: Bytes!
   encodedData: Bytes!
+  message: Message
+  txHash: Bytes!
+  timestamp: BigInt!
+  recipient: Bytes
 }
 
 type RelayedMessage @entity {
@@ -51,4 +59,13 @@ type RequiredSignaturesChanged @entity {
 type RequiredBlockConfirmationChanged @entity {
   id: ID!
   requiredBlockConfirmations: BigInt
+}
+
+type Message @entity {
+  id: ID!
+  msgId: Bytes
+  txHash: Bytes!
+  msgHash: Bytes
+  msgData: Bytes
+  signatures: [Bytes!]
 }
