@@ -2,6 +2,10 @@ type UserRequestForAffirmation @entity {
   id: ID!
   messageId: Bytes!
   encodedData: Bytes!
+  message: Message
+  timestamp: BigInt!
+  txHash: Bytes!
+  recipient: Bytes
 }
 
 type UserRequestForSignature @entity {
