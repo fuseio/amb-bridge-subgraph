@@ -11,15 +11,15 @@
     "create-fuse": "graph create mul53/fuse-fuse-amb --node https://api.thegraph.com/deploy/",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy-bsc-home": "graph deploy fuseio/bsc-amb-bridge-home-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-bsc-foreign": "graph deploy fuseio/bsc-amb-bridge-foreign-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-bsc-home": "graph deploy --node https://api.thegraph.com/deploy/ t0mcr8se/fuse-bsc-home-subgraph",
+    "deploy-bsc-foreign": "graph deploy --node https://api.thegraph.com/deploy/ t0mcr8se/fuse-bsc-foreign-subgraph",
     "deploy-ethfuse-eth": "graph deploy mul53/fuse-ethereum-amb --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-ethfuse-fuse": "graph deploy mul53/fuse-fuse-amb --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy mul53/fuse-fuse-amb --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "deploy-local": "graph deploy t0mcr8se/bsc-fuse-amb-home --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.20.0",
-    "@graphprotocol/graph-ts": "^0.20.0",
+    "@graphprotocol/graph-cli": "^0.23.0",
+    "@graphprotocol/graph-ts": "^0.22.0",
     "mustache": "^4.2.0"
   },
   "dependencies": {

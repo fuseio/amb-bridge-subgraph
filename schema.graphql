@@ -73,6 +73,7 @@ type Message @entity {
   id: ID!
 
   txHash: String
+  sender: String
 
   userRequestForAffirmation: UserRequestForAffirmation
   userRequestForSignature: UserRequestForSignature

@@ -25,6 +25,7 @@ export function handleUserRequestForAffirmation(
 ): void {
     let msgId = event.params.messageId.toHexString();
     
+    
     let request = UserRequestForAffirmation.load(msgId);
     if (request == null) {
         request = new UserRequestForAffirmation(msgId);
@@ -45,6 +46,7 @@ export function handleUserRequestForAffirmation(
 
     message.userRequestForAffirmation = msgId;
     message.txHash = event.transaction.hash.toHexString();
+    message.sender = event.transaction.from.toHexString();
     message.save()
 }
 
@@ -73,6 +75,7 @@ export function handleUserRequestForSignature(
 
     message.userRequestForSignature = msgId;
     message.txHash = event.transaction.hash.toHexString();
+    message.sender = event.transaction.from.toHexString();
     message.save()
 }
 
@@ -100,6 +103,7 @@ export function handleRelayedMessage(event: RelayedMessageEvent): void {
     }
 
     message.relayedMessage = msgId;
+    // message.sender = event.params.sender.toHexString()
     message.save()
 }
 
@@ -127,6 +131,7 @@ export function handleAffirmationCompleted(event: AffirmationCompletedEvent): vo
     }
 
     message.affirmationCompleted = msgId;
+    // message.sender = event.params.sender.toHexString();
     message.save()
 }
 
