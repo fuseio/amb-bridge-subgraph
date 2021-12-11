@@ -15,6 +15,8 @@ export function handleValidatorAdded(
         validatorAdded = new ValidatorAdded(txHash.toHexString());
     }
 
+    validatorAdded.blockNo = event.block.number;
+
     validatorAdded.validator = event.params.validator;
     validatorAdded.save();
 }
@@ -29,6 +31,8 @@ export function handleValidatorRemoved(
         validatorRemoved = new ValidatorRemoved(txHash.toHexString());
     }
 
+    validatorRemoved.blockNo = event.block.number;
+
     validatorRemoved.validator = event.params.validator;
     validatorRemoved.save();
 }
@@ -42,6 +46,8 @@ export function handleRequiredSignaturesChanged(
     if (requiredSignatures == null) {
         requiredSignatures = new RequiredSignaturesChanged(txHash.toHexString());
     }
+
+    requiredSignatures.blockNo = event.block.number;
 
     requiredSignatures.requiredSignatures = event.params.requiredSignatures;
     requiredSignatures.save();
